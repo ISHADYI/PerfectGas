@@ -9,13 +9,14 @@ namespace PerfectGas
 {
     class Ball: PictureBox
     {
-        private double x, y;
+        static Random random;
+        protected double x, y;
         int radius;
-        Random random = new Random();
         Form form;
 
         public Ball()
         {
+            random = new Random();
             this.x = random.Next(400);
             this.y = random.Next(400);
             this.radius = 20;
@@ -38,6 +39,32 @@ namespace PerfectGas
         {
             this.Top = (int)y - radius;
             this.Left = (int)x - radius;
+        }
+    }
+
+    class MoveBall : Ball
+    {
+        double vx = 5, vy = 5;
+        Timer timer;
+
+        public MoveBall(int x, int y, Form form) : base (x,y,form) // наследование из родительского конструктора
+        {
+            timer = new Timer();
+            timer.Enabled = true;
+            timer.Interval = 10;
+            timer.Tick += Timer_Tick;
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            Move();
+            Show();
+        }
+
+        public void Move()
+        {
+            x = x + vx;
+            y = y + vy;
         }
     }
 }

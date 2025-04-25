@@ -32,11 +32,13 @@
             // 
             // FormGas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormGas";
             this.Text = "Идеальный газ";
+            this.Load += new System.EventHandler(this.FormGas_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormGas_MouseDown);
             this.ResumeLayout(false);
 

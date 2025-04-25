@@ -12,6 +12,7 @@ namespace PerfectGas
 {
     public partial class FormGas : Form
     {
+        MoveBall moveBall;
         public FormGas()
         {
             InitializeComponent();
@@ -24,7 +25,26 @@ namespace PerfectGas
 
         private void FormGas_MouseDown(object sender, MouseEventArgs e)
         {
-            Ball ball = new Ball(e.X, e.Y, this);
+            if(e.Button == MouseButtons.Left)
+            {
+                Ball ball = new Ball(e.X, e.Y, this);
+            }
+
+            else
+            {
+                moveBall = new MoveBall(e.X, e.Y, this);
+            }
+        }
+
+        private void FormGas_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            moveBall.Move();
+            moveBall.Show();
         }
     }
 }
